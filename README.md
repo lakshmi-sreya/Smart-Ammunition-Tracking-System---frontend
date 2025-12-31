@@ -1,143 +1,161 @@
-Smart Ammunition Tracking System – Frontend
-A modern, single‑page web application for securely tracking ammunition inventory, movements, and inspections.
-This repository contains the frontend-only implementation built with vanilla HTML, CSS, and JavaScript.
+# Smart Ammunition Tracking System – Frontend
 
-Features
-Secure login screen with simple demo credentials and a full‑screen thematic background.
+A modern single-page web application (SPA) designed to securely track ammunition inventory, movements, and inspections.
+This repository contains the frontend-only implementation, built using vanilla HTML, CSS, and JavaScript, with client-side data persistence for demonstration and academic purposes.
 
-Dashboard overview showing total ammunition, low‑stock alerts, and recent activity in a clean card layout.
+# Features
 
-Inventory management section to add, edit, and delete ammunition records (category, weapon, caliber, quantity, location, last inspection).
+Secure Login (Demo)
+Simple authentication using demo credentials, presented with a full-screen themed login page.
 
-Transaction handling for issues/returns that automatically update stock and create audit records.
+Dashboard Overview
+Displays total ammunition count, low-stock alerts, and recent activity using a clean, card-based layout.
 
-Audit log that records all changes with timestamp, action, quantity, and user for accountability.
+Inventory Management
+Create, edit, and delete ammunition records including:
 
-Analytics chart to visualize ammunition distribution by category using a responsive canvas chart.
+Category
+Weapon
+Caliber / Type
+Quantity
+Storage Location
+Last Inspection Date
 
-Feedback section where users can submit comments about the system; feedback is stored locally.
+Transaction Handling (Issue / Return)
+Manages ammunition issues and returns, automatically updating stock levels and generating audit records.
 
-Light / dark mode toggle with theme preference saved in localStorage.
+Audit Log
+Maintains a detailed, read-only log of all actions with timestamps, quantities, actions performed, and user details.
 
-Local persistence of all data (ammo records, audit log, feedback, and theme) using localStorage and sessionStorage.
+Analytics Visualization
+Interactive and responsive charts to visualize ammunition distribution by category.
 
-Tech Stack
-HTML5 – single‑page layout (index.html)
+Feedback Module
+Allows users to submit feedback about the system, stored locally for review.
 
-CSS3 – modern responsive design with CSS variables, cards, and light/dark themes (style.css)
+Light / Dark Mode
+Toggle between themes with preferences saved and restored automatically.
 
-JavaScript (ES6) – DOM manipulation, state management, CRUD logic, charts, and theme handling (script.js)
+Client-Side Persistence
+Inventory data, audit logs, feedback, session state, and theme preferences are stored using localStorage and sessionStorage.
 
-Chart.js (via CDN) – for inventory analytics visualization (if you add or already include the script tag)
+# Tech Stack
 
-LocalStorage / SessionStorage – client‑side data and session persistence
+HTML5 – Single-page application layout (index.html)
 
-Project Structure
-index.html – main single‑page application layout, sections (Dashboard, Inventory, Transactions, Audit, Ethics/Info, Feedback), and login page markup.
+CSS3 – Responsive UI, cards, CSS variables, and light/dark themes (style.css)
 
-style.css – global styles, layout grid, cards, tables, login page background and glassmorphism card, plus light/dark theme variables.
+JavaScript (ES6) – DOM manipulation, state management, CRUD operations, audit logic, charts, and theming (script.js)
 
-script.js – login handling, navigation between sections, CRUD operations for ammunition records, transaction logic, audit logging, chart rendering, feedback handling, and theme toggle.
+Chart.js (CDN) – Inventory analytics visualization
 
-background1.jpg – background image for the login page.
+Web Storage APIs – localStorage and sessionStorage for client-side persistence
 
-chakra.jpg – image used as part of the branding/logo.
+# Project Structure
+├── index.html        # Main SPA layout and section markup
+├── style.css         # Global styles, layout, themes, and UI components
+├── script.js         # Application logic and state management
+├── background1.jpg   # Login page background image
+├── chakra.jpg        # Branding / logo image
 
-Getting Started
-Clone the repository
-
-bash
+# Getting Started
+1. Clone the Repository
 git clone https://github.com/lakshmi-sreya/Smart-Ammunition-Tracking-System---frontend.git
 cd Smart-Ammunition-Tracking-System---frontend
-Open the app
 
-Open index.html directly in a browser, or
+2. Run the Application
 
-Use a simple static server (recommended for consistent behavior):
+Option 1: Open directly
 
-bash
-# Using Python 3
+Open index.html in any modern browser.
+
+Option 2: Use a local server (recommended)
+
 python -m http.server 8000
-# then open http://localhost:8000 in your browser
-Log in
 
-Default demo credentials (you can change them in script.js):
+
+Then open: http://localhost:8000
+
+# Login Credentials (Demo)
 
 Username: admin
 
 Password: 1234
 
-On successful login the login page hides and the main application is displayed.
+Credentials can be modified in script.js.
 
-Usage
+Upon successful login, the login screen is hidden and the main application interface is displayed.
+
+# Application Usage
+
 Dashboard
 
-View total ammunition quantity and number of low‑stock items (threshold 100 by default).
+View total ammunition count.
+Monitor low-stock items (default threshold: 100).
+Track recent transactions in chronological order.
 
-See the most recent transactions listed in chronological order.
+Inventory Management
 
-Inventory / Records
-
-Fill in the form for Category, Weapon, Caliber / Type, Quantity, Storage Location, and Last Inspection date.
-
-Click Add / Save to create new records; use the table action buttons to edit or delete existing ones.
+Add or update ammunition records via a form.
+Edit or delete records using table action buttons.
 
 Transactions
 
-Choose Issue or Return, select a weapon from the dropdown, enter the quantity, and submit.
-
-Quantities are validated so stock cannot go negative; successful operations are logged.
+Perform Issue or Return operations.
+Stock validation prevents negative quantities.
+All actions are automatically logged.
 
 Audit Log
 
-Displays a read‑only table of all actions with timestamp, action type, category, weapon, quantity, and user.
-
-Useful for transparency and accountability in ammunition handling.
+Displays a detailed history of all inventory actions.
+Ensures transparency and accountability.
 
 Analytics
 
-Shows a chart summarizing ammunition by category or other aggregate, updated whenever records change.
+Visualizes ammunition distribution by category.
+Charts update dynamically when inventory data changes.
 
-Feedback / Ethics
+Feedback & Ethics
 
-Feedback form lets users submit comments; entries are stored in localStorage and shown in a compact list.
-
-Ethics/Info section describes the purpose of the system and emphasizes responsible usage and data integrity.
+Users can submit feedback through a form.
+An Ethics/Info section explains system purpose and responsible usage.
 
 Theme Toggle
 
-Click the sun/moon icon to switch between light and dark mode.
+Switch between light and dark modes.
 
-The preference is saved in localStorage and restored on next visit.
+Theme preference persists across sessions.
 
-Data Storage
-localStorage keys
+# Data Storage
+localStorage
 
-ammoRecords – main inventory records array.
+ammoRecords – Inventory data
 
-auditLog – chronological list of all actions.
+auditLog – Action history
 
-feedbackList – stored user feedback.
+feedbackList – User feedback
 
-themePref – "light" or "dark".
+themePref – Theme preference
 
 sessionStorage
 
-sats_user – current logged‑in user for the session.
+sats_user – Current logged-in user
 
-All data is stored only in the browser and is meant for demonstration / academic use, not production‑level security.
+All data is stored locally in the browser and intended only for demonstration or academic use.
 
-Academic / Disclaimer Notice
-This project is designed as an academic demonstration of a tracking dashboard with client‑side persistence, not as a real defense‑grade system.
-Authentication, authorization, and storage are simplified and should not be used as‑is in operational or sensitive environments.
+# Academic Disclaimer
 
-Future Improvements
-Connect to a secure backend API and database instead of localStorage.
+This project is an academic demonstration of a frontend-only tracking dashboard.
+Authentication, authorization, and data storage are simplified and not suitable for real-world or defense-grade deployment.
 
-Role‑based access control (admin, auditor, operator).
+# Future Improvements
 
-Export/import of records and logs (CSV or JSON).
+Integrate a secure backend API and database to replace client-side storage.
 
-More advanced analytics and filters (by date range, location, weapon type).
+Implement role-based access control (RBAC) for Admin, Auditor, and Operator roles.
 
-Automated tests and CI/CD pipeline.
+Add export and import functionality for records and logs (CSV / JSON).
+
+Introduce advanced analytics and filtering by date range, location, and weapon type.
+
+Implement automated testing and a CI/CD pipeline for improved reliability and deployment.
