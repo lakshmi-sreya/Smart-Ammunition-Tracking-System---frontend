@@ -8,17 +8,32 @@
     --muted: #6b6f76;
     --shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
     --radius: 10px;
-    --accent-gradient: linear-gradient(90deg, var(--orange), #fff 48%, var(--green));
+    --page-grad-start: rgba(255, 249, 240, 0.6);
+    --accent-mid: #ffffff;
+    --accent-gradient: linear-gradient(90deg, var(--orange), var(--accent-mid) 48%, var(--green));
     --glass: rgba(255, 255, 255, 0.6);
 }
 
+/* Dark mode overrides */
 /* Dark mode overrides */
 body.dark {
     --bg: #0f1724;
     --card-bg: #0b1220;
     --muted: #9aa4b2;
     --shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
+    --accent-mid: rgba(255, 255, 255, 0.12);
+    --page-grad-start: rgba(2, 6, 23, 0.9);
+    color: #e5e7eb;
 }
+
+/* Fix #bgDecor for dark mode */
+body.dark #bgDecor {
+    background:
+        radial-gradient(circle at 10% 20%, rgba(255, 153, 51, 0.02), transparent 12%),
+        radial-gradient(circle at 90% 80%, rgba(19, 136, 8, 0.015), transparent 14%);
+    opacity: 0.4; /* reduce haze */
+}
+
 
 /* Reset & base */
 * {
@@ -33,7 +48,8 @@ body {
 body {
     margin: 0;
     font-family: "Poppins", sans-serif;
-    background: linear-gradient(180deg, rgba(255, 249, 240, 0.6), var(--bg));
+    /* background: linear-gradient(180deg, rgba(255, 249, 240, 0.6), var(--bg)); */
+    background: linear-gradient(180deg, var(--page-grad-start), var(--bg));
     color: #0b1220;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -238,12 +254,15 @@ body {
 
 /* Bigger, modern login card */
 .loginCard {
-    width: 480px;                 
-    padding: 50px 40px;           /* more spacious */
+    width: 480px;
+    padding: 50px 40px;
+    /* more spacious */
     text-align: center;
     background: var(--card-bg);
-    border-radius: 16px;          /* smoother edges */
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12); /* deeper shadow */
+    border-radius: 16px;
+    /* smoother edges */
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+    /* deeper shadow */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -311,7 +330,8 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45); /* dark overlay */
+    background: rgba(0, 0, 0, 0.45);
+    /* dark overlay */
     z-index: 0;
 }
 
@@ -322,8 +342,10 @@ body {
     width: 480px;
     padding: 50px 40px;
     text-align: center;
-    background: rgba(255, 255, 255, 0.85); /* slightly transparent card */
-    backdrop-filter: blur(8px);            /* glassy look */
+    background: rgba(255, 255, 255, 0.85);
+    /* slightly transparent card */
+    backdrop-filter: blur(8px);
+    /* glassy look */
     border-radius: 16px;
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
