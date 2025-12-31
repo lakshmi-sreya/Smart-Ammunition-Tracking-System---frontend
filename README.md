@@ -1,4 +1,4 @@
-# The website is live at:
+The website is live at:
 https://lakshmi-sreya.github.io/Smart-Ammunition-Tracking-System---frontend/
 
 # Smart Ammunition Tracking System – Frontend
