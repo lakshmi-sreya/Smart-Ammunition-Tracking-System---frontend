@@ -1,3 +1,6 @@
+# The website is live at:
+https://lakshmi-sreya.github.io/Smart-Ammunition-Tracking-System---frontend/
+
 # Smart Ammunition Tracking System – Frontend
 
 A modern single-page web application (SPA) designed to securely track ammunition inventory, movements, and inspections.
